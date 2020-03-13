@@ -1,2 +1,21 @@
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import "./bootstrap_overrides";
 @import "~bootstrap/scss/bootstrap";
+
+@import "./task-list-page";
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+body {
+  padding-bottom: 2rem;
+}
+
+.page {
+  margin-top: 1.5rem;
+
+  &__header {
+    margin-bottom: 1rem;
+  }
+}
