@@ -37,6 +37,8 @@ module ElTaskDdd
       g.assets false
       g.view_specs false
       g.controller_specs false
+      g.request_specs false
+      g.model_specs false
     end
 
     config.time_zone = 'Tokyo'
