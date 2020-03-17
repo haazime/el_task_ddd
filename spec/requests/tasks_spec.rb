@@ -20,7 +20,7 @@ RSpec.describe '/tasks' do
           post tasks_path, params: { form: { content: '' } }
         }.to change(Dao::Task, :count).by(0)
 
-        expect(response.body).to include('入力してください')
+        expect(response.body).to include(i18n_error_message(:blank))
       end
     end
   end
