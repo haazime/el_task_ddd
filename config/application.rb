@@ -40,5 +40,8 @@ module ElTaskDdd
     end
 
     config.time_zone = 'Tokyo'
+
+    # autoload ./domain
+    config.autoload_paths << Rails.root + 'domain'
   end
 end
