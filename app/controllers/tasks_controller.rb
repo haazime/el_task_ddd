@@ -2,6 +2,10 @@
 
 class TasksController < ApplicationController
 
+  def index
+    @tasks = []
+  end
+
   def new
     @form = CreateTaskForm.new
   end

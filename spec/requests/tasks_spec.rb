@@ -20,7 +20,17 @@ RSpec.describe '/tasks' do
           post tasks_path, params: { form: { content: '' } }
         }.to change(Dao::Task, :count).by(0)
 
-        expect(response.body).to include(i18n_error_message(:blank))
+        expect(response.body).to include(i18n_error(:blank))
+      end
+    end
+  end
+
+  describe '#index' do
+    context 'タスクが存在しない場合' do
+      it do
+        get tasks_path
+
+        expect(response.body).to include(i18n_view('tasks.index.empty'))
       end
     end
   end

@@ -32,7 +32,7 @@ RSpec.describe CreateTaskForm do
         form = described_class.new(valid.merge(content: ''))
 
         expect(form).to_not be_valid
-        expect(form.errors[:content]).to include(i18n_error_message(:blank))
+        expect(form.errors[:content]).to include(i18n_error(:blank))
       end
     end
 
@@ -41,7 +41,7 @@ RSpec.describe CreateTaskForm do
         form = described_class.new(valid.merge(deadline: '12345'))
 
         expect(form).to_not be_valid
-        expect(form.errors[:deadline]).to include(i18n_error_message(:invalid_date))
+        expect(form.errors[:deadline]).to include(i18n_error(:invalid_date))
       end
     end
   end
