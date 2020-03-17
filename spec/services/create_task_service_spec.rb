@@ -13,6 +13,7 @@ RSpec.describe TaskService do
     task = ActiveRecordTaskRepository.find_by_id(task_id)
 
     aggregate_failures do
+      expect(task.id).to eq(task_id)
       expect(task.content).to eq('タスクの内容')
       expect(task.description).to be_nil
       expect(task.status.to_s).to eq('todo')

@@ -13,6 +13,7 @@ class ActiveRecordTaskRepository < Task::TaskRepository
 
     def find_by_id(task_id)
       data = Dao::Task.find(task_id.to_s)
+
       Task::Task.from_repository(
         id: Task::Id.new(data.id),
         content: data.content,
