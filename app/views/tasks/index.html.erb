@@ -1,3 +1,5 @@
-<% if @tasks.empty? %>
+<% if @tasks.empty? -%>
   <%=t '.empty' %>
+<% else -%>
+  <%= render partial: 'task', collection: @tasks %>
 <% end -%>

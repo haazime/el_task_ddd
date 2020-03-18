@@ -6,12 +6,12 @@ class TaskService
     @task_repository = task_repository
   end
 
-  def create_task(content, deadline: nil)
+  def create_task(content, description: nil, deadline: nil)
     if deadline
       deadline = Task::Deadline.from_string(deadline)
     end
 
-    task = Task::Task.new(content, deadline: deadline)
+    task = Task::Task.new(content, description: description, deadline: deadline)
     @task_repository.add(task)
     task.id
   end

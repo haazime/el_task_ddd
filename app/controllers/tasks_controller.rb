@@ -3,7 +3,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = []
+    @tasks = TaskListQuery.call
   end
 
   def new
