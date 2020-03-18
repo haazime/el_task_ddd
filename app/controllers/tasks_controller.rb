@@ -14,8 +14,8 @@ class TasksController < ApplicationController
     @form = CreateTaskForm.new(create_params)
 
     if @form.valid?
-      service = TaskService.new
-      service.create_task(@form.content)
+      usecase = CreateTaskUsecase.new
+      usecase.run(@form.content)
       redirect_to tasks_path
     else
       render :new

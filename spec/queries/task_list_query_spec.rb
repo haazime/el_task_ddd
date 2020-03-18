@@ -3,18 +3,21 @@
 require 'rails_helper'
 
 RSpec.describe TaskListQuery do
+  let(:usecase) { CreateTaskUsecase.new }
+
   it '要素はタスクの内容を返すこと' do
-    service = TaskService.new
-    task_id = service.create_task('CONTENT_OF_TASK', description: 'DESC_OF_TASK', deadline: '2020-01-23')
+    task_id = usecase.run('CONTENT_OF_TASK', description: 'DESC_OF_TASK', deadline: '2020-01-23')
 
     data = described_class.call.first
 
-    expect(data.task_id).to eq(task_id.to_s)
-    expect(data.content).to eq('CONTENT_OF_TASK')
-    expect(data.description).to eq('DESC_OF_TASK')
-    expect(data.status).to eq('todo')
-    expect(data.priority).to eq('middle')
-    expect(data.deadline.to_s).to eq('2020-01-23')
+    aggregate_failures do
+      expect(data.task_id).to eq(task_id.to_s)
+      expect(data.content).to eq('CONTENT_OF_TASK')
+      expect(data.description).to eq('DESC_OF_TASK')
+      expect(data.status).to eq('todo')
+      expect(data.priority).to eq('middle')
+      expect(data.deadline.to_s).to eq('2020-01-23')
+    end
   end
 
   context 'タスクがない場合' do
@@ -27,10 +30,9 @@ RSpec.describe TaskListQuery do
 
   context 'タスクがある場合' do
     it do
-      service = TaskService.new
-      task_a_id = service.create_task('タスクAAA')
-      task_b_id = service.create_task('タスクBBB')
-      task_c_id = service.create_task('タスクCCC')
+      task_a_id = usecase.run('タスクAAA')
+      task_b_id = usecase.run('タスクBBB')
+      task_c_id = usecase.run('タスクCCC')
 
       list = described_class.call
 

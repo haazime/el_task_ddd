@@ -2,13 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.describe TaskService do
+RSpec.describe CreateTaskUsecase do
   let(:service) do
     described_class.new(ActiveRecordTaskRepository)
   end
 
   it do
-    task_id = service.create_task(
+    task_id = service.run(
       'タスクの内容',
       description: 'タスクの説明',
       deadline: '2020-03-30'

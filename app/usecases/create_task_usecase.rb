@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class TaskService
+class CreateTaskUsecase
 
   def initialize(task_repository = ActiveRecordTaskRepository)
     @task_repository = task_repository
   end
 
-  def create_task(content, description: nil, deadline: nil)
+  def run(content, description: nil, deadline: nil)
     if deadline
       deadline = Task::Deadline.from_string(deadline)
     end
