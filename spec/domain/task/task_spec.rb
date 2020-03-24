@@ -2,7 +2,7 @@
 
 RSpec.describe Task::Task do
   describe '初期状態' do
-    let(:task) { described_class.new('abc') }
+    let(:task) { described_class.create('abc') }
 
     it do
       expect(task.id).to_not be_nil

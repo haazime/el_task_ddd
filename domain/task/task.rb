@@ -5,23 +5,30 @@ module Task
     attr_reader :id, :content, :description, :status, :priority, :deadline
 
     class << self
+      def create(content, description: nil, priority: nil, deadline: nil)
+        new(
+          Id.generate,
+          content,
+          description,
+          Status.todo,
+          priority || Priority.middle,
+          deadline
+        )
+      end
+
       def from_repository(id:, content:, description:, status:, priority:, deadline:)
-        new(content, description: description, deadline: deadline).tap do |me|
-          me.instance_eval do
-            @id = id
-            @status = status
-            @priority = priority
-          end
-        end
+        new(id, content, description, status, priority, deadline)
       end
     end
 
-    def initialize(content, description: nil, priority: nil, deadline: nil)
-      @id = Id.generate
+    private_class_method :new
+
+    def initialize(id, content, description, status, priority, deadline)
+      @id = id
       @content = content
       @description = description
-      @status = Status.todo
-      @priority = priority || Priority.middle
+      @status = status
+      @priority = priority
       @deadline = deadline
     end
 
