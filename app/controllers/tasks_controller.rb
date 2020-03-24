@@ -4,9 +4,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = TaskListQuery.call
-  end
-
-  def new
     @form = CreateTaskForm.new
   end
 
@@ -15,7 +12,7 @@ class TasksController < ApplicationController
 
     if @form.valid?
       usecase = CreateTaskUsecase.new
-      usecase.run(@form.content)
+      usecase.run(@form.content, description: @form.description, deadline: @form.deadline)
       redirect_to tasks_path
     else
       render :new
@@ -25,6 +22,6 @@ class TasksController < ApplicationController
   private
 
   def create_params
-    params.require(:form).permit(:content)
+    params.require(:form).permit(:content, :description, :priority, :deadline)
   end
 end

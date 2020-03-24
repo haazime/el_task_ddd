@@ -1,5 +1,19 @@
 <tr>
   <td>
-    <%= task.content %>
+    <p class="task__content">
+      <%= task.content %>
+    </p>
+    <p class="task__description">
+      <%= simple_format(task.description) %>
+    </p>
+  </td>
+  <td>
+    <%= task.status %>
+  </td>
+  <td>
+    <%= task.priority %>
+  </td>
+  <td>
+    <%= task.deadline %>
   </td>
 </tr>

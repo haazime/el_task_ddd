@@ -8,10 +8,9 @@ class CreateTaskForm
   validates :content, presence: true
   validates :deadline, date: true, allow_nil: true
 
-  def initialize(attributes)
+  def initialize(attributes = {})
     super
     self.description = nil if description.blank?
     self.deadline = nil if deadline.blank?
   end
 end
-

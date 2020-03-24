@@ -1,5 +1,28 @@
-<% if @tasks.empty? -%>
-  <%=t '.empty' %>
-<% else -%>
-  <%= render partial: 'task', collection: @tasks %>
-<% end -%>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-11 page">
+      <div class="page__header">
+        <h1>
+          Tasks
+        </h1>
+      </div>
+      <div class="task-list">
+        <% if @tasks.empty? -%>
+          <%=t '.empty' %>
+        <% else -%>
+          <%= render partial: 'list', locals: { tasks: @tasks } %>
+        <% end -%>
+      </div>
+      <div class="task-list-page__form">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h2>
+              新規タスク
+            </h2>
+            <%= render partial: 'form', locals: { form: @form } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

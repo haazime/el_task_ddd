@@ -1,0 +1,38 @@
+<%= form_with model: form, scope: :form, url: tasks_path, html: { id: 'js-new-task-form' } do |f| %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :priority %>
+    <div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="priority0">
+        <label class="form-check-label" for="priority0">
+          高
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="priority1" checked>
+        <label class="form-check-label" for="priority1">
+          中
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="priority1">
+        <label class="form-check-label" for="priority1">
+          低
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :deadline %>
+    <%= f.date_field :deadline, class: 'form-control' %>
+  </div>
+  <%= f.button t('actions.add'), class: 'btn btn-success' %>
+<% end %>
