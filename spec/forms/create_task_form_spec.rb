@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
+require 'rails_helper'
+
 RSpec.describe CreateTaskForm do
   let(:valid) do
     {
       content: 'Task AAA',
       description: 'Task Description',
+      priority: '0',
       deadline: '2020-03-17',
     }
   end
@@ -22,6 +25,11 @@ RSpec.describe CreateTaskForm do
 
     it do
       form = described_class.new(valid.merge(deadline: ''))
+      expect(form).to be_valid
+    end
+
+    it do
+      form = described_class.new(valid.merge(priority: ''))
       expect(form).to be_valid
     end
   end
@@ -44,6 +52,15 @@ RSpec.describe CreateTaskForm do
         expect(form.errors[:deadline]).to include(i18n_error(:invalid_date))
       end
     end
+
+    context '優先度が不正な値' do
+      it do
+        form = described_class.new(valid.merge(priority: '4'))
+
+        expect(form).to_not be_valid
+        expect(form.errors[:priority]).to include(i18n_error(:invalid))
+      end
+    end
   end
 
   describe '#description' do
@@ -51,6 +68,14 @@ RSpec.describe CreateTaskForm do
       form = described_class.new(valid.merge(description: ''))
 
       expect(form.description).to be_nil
+    end
+  end
+
+  describe '#priority' do
+    it do
+      form = described_class.new(valid.merge(priority: ''))
+
+      expect(form.priority).to be_nil
     end
   end
 

@@ -9,8 +9,25 @@ module Task
     }
 
     class << self
+      def from_integer(value)
+        raise ArgumentError unless LABELS.keys.include?(value)
+        new(value)
+      end
+
+      def low
+        new(0)
+      end
+
       def middle
         new(1)
+      end
+
+      def high
+        new(2)
+      end
+
+      def all
+        [low, middle, high]
       end
     end
 

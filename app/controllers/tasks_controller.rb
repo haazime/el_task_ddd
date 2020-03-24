@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 
     if @form.valid?
       usecase = CreateTaskUsecase.new
-      usecase.run(@form.content, description: @form.description, deadline: @form.deadline)
+      usecase.run(@form.content, description: @form.description, priority: @form.priority, deadline: @form.deadline)
       redirect_to tasks_path
     else
       render :new

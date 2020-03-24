@@ -16,12 +16,12 @@ module Task
       end
     end
 
-    def initialize(content, description: nil, deadline: nil)
+    def initialize(content, description: nil, priority: nil, deadline: nil)
       @id = Id.generate
       @content = content
       @description = description
       @status = Status.todo
-      @priority = Priority.middle
+      @priority = priority || Priority.middle
       @deadline = deadline
     end
 

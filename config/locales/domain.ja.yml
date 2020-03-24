@@ -1,0 +1,12 @@
+ja:
+  domain:
+
+    task:
+      status:
+        todo: 未着手
+        doging: 着手中
+        done: 完了
+      priority:
+        low: 低
+        middle: 中
+        high: 高

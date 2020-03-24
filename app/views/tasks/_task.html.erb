@@ -8,10 +8,10 @@
     </p>
   </td>
   <td>
-    <%= task.status %>
+    <%=t task.status, scope: 'domain.task.status' %>
   </td>
   <td>
-    <%= task.priority %>
+    <%=t task.priority, scope: 'domain.task.priority' %>
   </td>
   <td>
     <%= task.deadline %>

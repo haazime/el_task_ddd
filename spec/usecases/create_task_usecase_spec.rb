@@ -11,6 +11,7 @@ RSpec.describe CreateTaskUsecase do
     task_id = service.run(
       'タスクの内容',
       description: 'タスクの説明',
+      priority: '2',
       deadline: '2020-03-30'
     )
 
@@ -21,7 +22,7 @@ RSpec.describe CreateTaskUsecase do
       expect(task.content).to eq('タスクの内容')
       expect(task.description).to eq('タスクの説明')
       expect(task.status.to_s).to eq('todo')
-      expect(task.priority.to_s).to eq('middle')
+      expect(task.priority.to_s).to eq('high')
       expect(task.over_deadline?(Date.parse('2020-03-30'))).to be false
     end
   end
