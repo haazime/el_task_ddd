@@ -9,11 +9,6 @@ module Task
     }
 
     class << self
-      def from_integer(value)
-        raise ArgumentError unless LABELS.keys.include?(value)
-        new(value)
-      end
-
       def low
         new(0)
       end
@@ -29,7 +24,18 @@ module Task
       def all
         [low, middle, high]
       end
+
+      def from_integer(value)
+        raise ArgumentError unless LABELS.keys.include?(value)
+        new(value)
+      end
+
+      def from_repository(value)
+        new(value)
+      end
     end
+
+    private_class_method :new
 
     def to_s
       LABELS[to_i]

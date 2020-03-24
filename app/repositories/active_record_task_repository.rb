@@ -15,11 +15,11 @@ class ActiveRecordTaskRepository < Task::TaskRepository
       data = Dao::Task.find(task_id.to_s)
 
       Task::Task.from_repository(
-        id: Task::Id.new(data.id),
+        id: Task::Id.from_repository(data.id),
         content: data.content,
         description: data.description,
-        status: Task::Status.new(data.status),
-        priority: Task::Priority.new(data.priority),
+        status: Task::Status.from_repository(data.status),
+        priority: Task::Priority.from_repository(data.priority),
         deadline: Task::Deadline.new(data.deadline),
       )
     end

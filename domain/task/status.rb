@@ -12,7 +12,13 @@ module Task
       def todo
         new(0)
       end
+
+      def from_repository(value)
+        new(value)
+      end
     end
+
+    private_class_method :new
 
     def to_s
       LABELS[to_i]

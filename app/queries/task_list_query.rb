@@ -8,8 +8,8 @@ module TaskListQuery
           task_id: record.id,
           content: record.content,
           description: record.description,
-          status: Task::Status.new(record.status).to_s,
-          priority: Task::Priority.new(record.priority).to_s,
+          status: Task::Status.from_repository(record.status).to_s,
+          priority: Task::Priority.from_repository(record.priority).to_s,
           deadline: record.deadline.to_s,
         )
       end
