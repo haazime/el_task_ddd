@@ -13,11 +13,11 @@ RSpec.describe Task::Task do
     end
 
     it do
-      expect(task.status.to_s).to eq 'todo'
+      expect(task.status).to eq Task::Status.todo
     end
 
     it do
-      expect(task.priority.to_s).to eq 'middle'
+      expect(task.priority).to eq Task::Priority.middle
     end
 
     it do

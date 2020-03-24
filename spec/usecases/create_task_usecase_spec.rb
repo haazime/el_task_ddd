@@ -21,8 +21,8 @@ RSpec.describe CreateTaskUsecase do
       expect(task.id).to eq(task_id)
       expect(task.content).to eq('タスクの内容')
       expect(task.description).to eq('タスクの説明')
-      expect(task.status.to_s).to eq('todo')
-      expect(task.priority.to_s).to eq('high')
+      expect(task.status).to eq(Task::Status.todo)
+      expect(task.priority).to eq(Task::Priority.high)
       expect(task.over_deadline?(Date.parse('2020-03-30'))).to be false
     end
   end
