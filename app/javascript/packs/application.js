@@ -19,3 +19,5 @@ require("bootstrap")
 require("@fortawesome/fontawesome-free/js/all")
 
 import "../src/application.scss"
+
+import "controllers"
