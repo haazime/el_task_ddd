@@ -3,9 +3,7 @@
     <p class="task__content">
       <%= task.content %>
     </p>
-    <p class="task__description">
-      <%= simple_format(task.description) %>
-    </p>
+    <%= task.description && simple_format(task.description, class: 'task__description') %>
   </td>
   <td>
     <%=t task.status, scope: 'domain.task.status' %>
