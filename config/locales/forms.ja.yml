@@ -1,0 +1,9 @@
+ja:
+  activemodel:
+    attributes:
+
+      create_task_form:
+        content: 内容
+        description: 説明
+        priority: 優先度
+        deadline: 期限

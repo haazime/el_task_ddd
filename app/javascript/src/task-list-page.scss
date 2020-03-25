@@ -1,5 +1,5 @@
 .task-list-page__form {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .task__content {
@@ -7,7 +7,29 @@
 }
 
 .task__description {
-  font-size: .75rem;
-  margin-top: 1rem;
+  font-size: .875rem;
+  margin-top: .5rem;
   margin-bottom: 0;
+}
+
+.task-list-page__form-bg {
+  padding: 1rem 2rem;
+  border: 1px solid $gray-300;
+  border-radius: .5rem;
+}
+
+.task-list__content {
+  width: 50%;
+}
+
+.task-list__status {
+  width: 15%;
+}
+
+.task-list__priority {
+  width: 10%;
+}
+
+.task-list__deadline {
+  width: 20%;
 }

@@ -1,0 +1,7 @@
+ja:
+  actions:
+    add: 追加する
+
+  tasks:
+    index:
+      empty: タスクはありません

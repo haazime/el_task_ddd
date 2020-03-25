@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="task-list__content">
+        内容
+      </th>
+      <th class="task-list__status">
+        ステータス
+      </th>
+      <th class="task-list__priority">
+        優先度
+      </th>
+      <th class="task-list__deadline">
+        終了期限
+      </th>
+    </tr>
+  </thead>
+  <tbody data-test="task_list_body">
+    <%= render partial: 'task', collection: tasks %>
+  </tbody>
+</table>

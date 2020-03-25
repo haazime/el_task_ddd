@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    <p class="task__content">
+      <%= task.content %>
+    </p>
+    <%= task.description && simple_format(task.description, class: 'task__description') %>
+  </td>
+  <td>
+    <%=t task.status, scope: 'domain.task.status' %>
+  </td>
+  <td>
+    <%=t task.priority, scope: 'domain.task.priority' %>
+  </td>
+  <td>
+    <%= task.deadline %>
+  </td>
+</tr>
