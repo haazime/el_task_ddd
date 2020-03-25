@@ -1,9 +1,16 @@
 <tr>
-  <td>
-    <p class="task__content">
-      <%= task.content %>
-    </p>
-    <%= task.description && simple_format(task.description, class: 'task__description') %>
+  <td data-controller="expander" data-expander-is-expanded="n">
+    <div class="task-content">
+      <p class="task__content">
+        <%= task.content %>
+      </p>
+      <% if task.description %>
+        <%= link_to t('.description'), '#', data: { action: 'expander#toggle' } %>
+      <% end -%>
+    </div>
+    <div data-target="expander.content">
+      <%= task.description && simple_format(task.description, class: 'task__description') %>
+    </div>
   </td>
   <td>
     <%=t task.status, scope: 'domain.task.status' %>

@@ -5,3 +5,5 @@ ja:
   tasks:
     index:
       empty: タスクはありません
+    task:
+      description: 詳細
