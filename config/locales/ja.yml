@@ -164,6 +164,7 @@ ja:
     messages:
       already_signed_in: ログインしています
       ensure_signed_in: ログインしてください
+    close: 閉じる
   number:
     currency:
       format:
